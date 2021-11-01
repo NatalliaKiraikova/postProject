@@ -1,0 +1,63 @@
+@use '~@angular/material' as mat;
+@use 'sass:map';
+
+@import "~@angular/material/theming";
+
+html, body {
+  height: 100%;
+  background-color: mat.get-color-from-palette(mat.$grey-palette, 100);
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@include mat.core();
+
+$my-primary: mat.define-palette(mat.$indigo-palette);
+$my-accent: mat.define-palette(mat.$orange-palette);
+$my-warn: mat.define-palette(mat.$red-palette);
+$my-info: mat.define-palette(mat.$green-palette);
+
+$my-theme: mat.define-light-theme((
+  color: (
+    primary: $my-primary,
+    accent: $my-accent,
+    warn: $my-warn,
+  )
+));
+
+@include mat.all-component-themes($my-theme);
+
+$page-padding: 10px;
+
+$font-size-small: 12px;
+$font-size-normal: 14px;
+$font-size-large: 16px;
+
+$post-height: 200px;
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  .snack-bar-success {
+    background: mat.get-color-from-palette($my-primary, 'default');
+  }
+
+  .snack-bar-error {
+    background: mat.get-color-from-palette($my-warn, 'default');
+  }
+
+  .snack-bar-warn {
+    background: mat.get-color-from-palette($my-accent, 'default');
+  }
+
+  .snack-bar-info {
+    background: mat.get-color-from-palette($my-info, 'lighter');
+  }
+}
+
+
+

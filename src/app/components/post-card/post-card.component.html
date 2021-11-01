@@ -1,0 +1,12 @@
+<mat-card (click)="onCardClick()">
+  <mat-card-title>
+    <div class="id-section">
+      <mat-icon> {{userIdState ? 'person' : 'local_post_office'}}</mat-icon>
+      {{userIdState ? post?.userId : post?.id}}
+    </div>
+    {{post?.title || 'Post'}}
+  </mat-card-title>
+  <mat-card-content>
+    <section>{{post?.body}}</section>
+  </mat-card-content>
+</mat-card>

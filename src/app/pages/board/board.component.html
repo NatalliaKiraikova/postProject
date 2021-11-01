@@ -1,3 +1,4 @@
+<mat-progress-bar *ngIf="!posts || !posts.length" mode="indeterminate"></mat-progress-bar>
 <div class="grid-container">
   <ng-template [ngForOf]="postStoreService.posts$ | async" let-item ngFor>
     <app-post-card [post]="item"></app-post-card>

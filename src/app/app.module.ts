@@ -12,6 +12,7 @@ import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import { MatIconModule } from "@angular/material/icon";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MatIconModule } from "@angular/material/icon";
     MatSnackBarModule,
     MatIconModule,
     RouterModule,
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

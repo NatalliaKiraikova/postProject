@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { BoardComponent } from "./board.component";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
 
 describe('BoardComponent', () => {
   let component: BoardComponent;
@@ -12,7 +13,7 @@ describe('BoardComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [BoardComponent],
-      imports: [HttpClientTestingModule, MatSnackBarModule]
+      imports: [HttpClientTestingModule, MatSnackBarModule, MatProgressBarModule]
     })
       .compileComponents();
   });

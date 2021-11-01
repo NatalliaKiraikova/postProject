@@ -1,5 +1,5 @@
 <div class="grid-container">
-  <ng-template [ngForOf]="posts" let-item ngFor>
+  <ng-template [ngForOf]="postStoreService.posts$ | async" let-item ngFor>
     <app-post-card [post]="item"></app-post-card>
   </ng-template>
 </div>

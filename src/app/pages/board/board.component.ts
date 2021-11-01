@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { IPost } from "src/app/models/post.model";
 import { PostService } from "src/app/services/post.service";
 import { NotificationService } from "src/app/services/notification.service";
 import { finalize } from "rxjs/operators";
+import { PostStoreService } from "src/app/store/post.store";
 
 @Component({
   selector: 'app-board',
@@ -10,11 +10,12 @@ import { finalize } from "rxjs/operators";
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-  public posts!: IPost[];
+  // public posts!: IPost[];
   public isLoading: boolean = false;
 
   constructor(private postService: PostService,
-              private notificationService: NotificationService) {
+              private notificationService: NotificationService,
+              public postStoreService: PostStoreService) {
   }
 
   ngOnInit(): void {
@@ -22,7 +23,8 @@ export class BoardComponent implements OnInit {
     this.postService.getPostsList()
       .pipe(finalize(() => this.isLoading = false))
       .subscribe(res => {
-          this.posts = res;
+          // this.posts = res;
+          this.postStoreService.setPosts(res);
         },
         (err) => {
           this.notificationService.error(err);
